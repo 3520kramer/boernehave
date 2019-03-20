@@ -4,7 +4,5 @@ public class Main {
         Child child = new Child();
 
         child.getChildList().add(child);
-
-        System.out.println(child.getChildList());
     }
 }

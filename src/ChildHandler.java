@@ -3,6 +3,8 @@ import java.io.*;
 
 public class ChildHandler {
 
+    Child child = new Child();
+
     public void addFromFile () throws Exception {
         Scanner scanread = new Scanner(new File("src/memberFile.txt"));
         scanread.useDelimiter("-");
@@ -11,40 +13,37 @@ public class ChildHandler {
 
         while (scanread.hasNext()){
 
-            Child child = new Child();
+            Child kid = new Child();
             count++;
 
             String text = scanread.next();
-            child.setFirstName(text);
+            kid.setFirstName(text);
 
             text = scanread.next();
-            child.setLastName(text);
+            kid.setLastName(text);
 
             text = scanread.next();
-            child.setBirthDate(text);
+            kid.setBirthDate(text);
 
             text= scanread.next();
-            child.setStreetName(text);
+            kid.setStreetName(text);
 
             int num = scanread.nextInt();
-            child.setStreetNumber(num);
+            kid.setStreetNumber(num);
 
             num= scanread.nextInt();
-            child.setPostalCode(num);
+            kid.setPostalCode(num);
 
             text = scanread.next();
-            child.setCity(text);
+            kid.setCity(text);
 
             num= scanread.nextInt();
-            child.setContactPerson1(num);
+            kid.setContactPerson1(num);
 
             num = scanread.nextInt();
-            child.setContactPerson2(num);
+            kid.setContactPerson2(num);
 
-            child.getChildList().add(child);
-
-
-
+            kid.getChildList().add(kid);
 
         }
     }
@@ -52,9 +51,15 @@ public class ChildHandler {
     public void addToFile() throws FileNotFoundException{
         PrintStream output = new PrintStream(new File("memberFile.txt"));
 
+    }
 
+    public void printTest() {
+        System.out.println("Børn");
 
-
+        for(Child ch : child.getChildList()) {
+            System.out.println("First name: " + ch.getFirstName());
+            System.out.println("Last name" + ch.getLastName());
+        }
     }
 
     public void registerNewChild() throws FileNotFoundException{

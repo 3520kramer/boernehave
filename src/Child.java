@@ -14,9 +14,9 @@ public class Child {
     private int contactPerson1;
     private int contactPerson2;
 
-    ArrayList childList = new ArrayList();
+    ArrayList<Child> childList = new ArrayList<Child>();
 
-    public ArrayList getChildList(){
+    public ArrayList<Child> getChildList(){
         return childList;
     }
 
