@@ -41,7 +41,7 @@ public class ChildHandler {
             num = scanread.nextInt();
             child.setContactPerson2(num);
 
-
+            child.getChildList().add(child);
 
 
 
