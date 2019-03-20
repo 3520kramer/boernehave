@@ -69,8 +69,10 @@ public class ChildHandler {
         child.setContactPerson1(num);
 
         System.out.println("Indtast kontaktperson nr. 2s telefonnummer: ");
-        int cPerson2 = input.nextInt();
+        num = input.nextInt();
         child.setContactPerson2(num);
 
     }
+
+
 }
