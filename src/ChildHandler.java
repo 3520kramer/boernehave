@@ -4,7 +4,7 @@ import java.io.*;
 public class ChildHandler {
 
     public void addFromFile () throws Exception {
-        Scanner scanread = new Scanner(new File("memberFile.txt"));
+        Scanner scanread = new Scanner(new File("src/memberFile.txt"));
         scanread.useDelimiter("-");
         int count = 0;
 
