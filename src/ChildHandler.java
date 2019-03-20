@@ -3,48 +3,46 @@ import java.io.*;
 
 public class ChildHandler {
 
+    ArrayList<Child> childList = new ArrayList<Child>();
+
     public void addFromFile () throws Exception {
-        Scanner scanread = new Scanner(new File("memberFile.txt"));
+        Scanner scanread = new Scanner(new File("src/memberFile.txt"));
         scanread.useDelimiter("-");
         int count = 0;
 
-
         while (scanread.hasNext()){
 
-            Child child = new Child();
+            Child kid = new Child();
             count++;
 
             String text = scanread.next();
-            child.setFirstName(text);
+            kid.setFirstName(text);
 
             text = scanread.next();
-            child.setLastName(text);
+            kid.setLastName(text);
 
             text = scanread.next();
-            child.setBirthDate(text);
+            kid.setBirthDate(text);
 
             text= scanread.next();
-            child.setStreetName(text);
+            kid.setStreetName(text);
 
             int num = scanread.nextInt();
-            child.setStreetNumber(num);
+            kid.setStreetNumber(num);
 
             num= scanread.nextInt();
-            child.setPostalCode(num);
+            kid.setPostalCode(num);
 
             text = scanread.next();
-            child.setCity(text);
+            kid.setCity(text);
 
             num= scanread.nextInt();
-            child.setContactPerson1(num);
+            kid.setContactPerson1(num);
 
             num = scanread.nextInt();
-            child.setContactPerson2(num);
+            kid.setContactPerson2(num);
 
-
-
-
-
+            childList.add(kid);
 
         }
     }
@@ -52,8 +50,15 @@ public class ChildHandler {
     public void addToFile() throws FileNotFoundException{
         PrintStream output = new PrintStream(new File("memberFile.txt"));
 
+    }
 
+    public void printTest() {
+        System.out.println("Børn: ");
 
+        for(Child ch : childList) {
+            System.out.println("Fornavn: " + ch.getFirstName());
+            System.out.println("Efternavn: " + ch.getLastName());
+        }
     }
 
     public void registerNewChild() throws FileNotFoundException{
@@ -62,20 +67,20 @@ public class ChildHandler {
         Child child = new Child();
 
         System.out.println("Indtast fornavn: ");
-        String var = input.nextLine();
-        child.setFirstName(var);
+        String text = input.nextLine();
+        child.setFirstName(text);
 
         System.out.println("Indtast efternavn:");
-        var = input.nextLine();
-        child.setLastName(var);
+        text = input.nextLine();
+        child.setLastName(text);
 
         System.out.println("Indtast fødselsdagsdato: ");
-        var = input.nextLine();
-        child.setBirthDate(var);
+        text = input.nextLine();
+        child.setBirthDate(text);
 
         System.out.println("Indtast vejnavn: ");
-        var = input.nextLine();
-        child.setStreetName(var);
+        text = input.nextLine();
+        child.setStreetName(text);
 
         System.out.println("Indtast husnummer: ");
         int num = input.nextInt();
@@ -86,8 +91,8 @@ public class ChildHandler {
         child.setPostalCode(num);
 
         System.out.println("Indtast by: ");
-        var = input.nextLine();
-        child.setCity(var);
+        text = input.nextLine();
+        child.setCity(text);
 
         System.out.println("Indtast kontaktperson nr. 1s telefonnummer: ");
         num = input.nextInt();
@@ -96,8 +101,5 @@ public class ChildHandler {
         System.out.println("Indtast kontaktperson nr. 2s telefonnummer: ");
         num = input.nextInt();
         child.setContactPerson2(num);
-
     }
-
-
 }
