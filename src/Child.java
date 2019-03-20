@@ -1,78 +1,82 @@
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+
 public class Child {
 
-    private String FirstName;
-    private String LastName;
-    private String BrithDate;
-    private String StreetName;
-    private String StreetNumber;
-    private int PostalCode = 0;
-    private String City;
+    private String firstName;
+    private String lastName;
+    private String birthDate;
+    private String streetName;
+    private int streetNumber;
+    private int postalCode = 0;
+    private String city;
     private int contactPerson1;
-    private int ContactPerson2;
+    private int contactPerson2;
 
 
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
+    public void setFirstName(String fName) {
+        this.firstName = fName;
     }
 
-    public void setLastName(String lastName) {
-        LastName = lastName;
+    public void setLastName(String lName) {
+        this.lastName = lName;
     }
 
-    public void setBrithDate(String brithDate) {
-        BrithDate = brithDate;
+    public void setBrithDate(String bDate) {
+        this.birthDate = bDate;
     }
 
-    public void setStreetName(String streetName) {
-        StreetName = streetName;
+    public void setStreetName(String strName) {
+        this.streetName = strName;
     }
 
-    public void setStreetNumber(String streetNumber) {
-        StreetNumber = streetNumber;
+    public void setStreetNumber(int strNumber) {
+        this.streetNumber = strNumber;
     }
 
-    public void setPostalCode(int postalCode) {
-        PostalCode = postalCode;
+    public void setPostalCode(int postCode) {
+        this.postalCode = postCode;
     }
 
-    public void setCity(String city) {
-        City = city;
+    public void setCity(String city1) {
+        this.city = city1;
     }
 
-    public void setContactPerson1(int contactPerson1) {
-        this.contactPerson1 = contactPerson1;
+    public void setContactPerson1(int cPerson1) {
+        this.contactPerson1 = cPerson1;
     }
 
-    public void setGetContactPerson2(int getContactPerson2) {
-        this.ContactPerson2 = getContactPerson2;
+    public void setGetContactPerson2(int cPerson2) {
+        this.contactPerson2 = cPerson2;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public String getBrithDate() {
-        return BrithDate;
+        return birthDate;
     }
 
     public String getStreetName() {
-        return StreetName;
+        return streetName;
     }
 
-    public String getStreetNumber() {
-        return StreetNumber;
+    public int getStreetNumber() {
+        return streetNumber;
     }
 
     public int getPostalCode() {
-        return PostalCode;
+        return postalCode;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public int getContactPerson1() {
@@ -80,7 +84,38 @@ public class Child {
     }
 
     public int getContactPerson2() {
-        return ContactPerson2;
+        return contactPerson2;
     }
 
+    public void registerNewChild() throws FileNotFoundException{
+
+        Scanner input = new Scanner(System.in);
+
+        Child child = new Child();
+        PrintStream writeChildToFile = new PrintStream(new FileOutputStream("Children.txt", true));
+
+        System.out.println("Indtast fornavn: ");
+        String fName = input.nextLine();
+
+        System.out.println("Indtast efternavn:");
+        String lname = input.nextLine();
+
+        System.out.println("Indtast fødselsdagsdato: ");
+        String bdate = input.nextLine();
+
+        System.out.println("Indtast vejnavn: ");
+        String strName = input.nextLine();
+
+        System.out.println("Indtast husnummer: ");
+        int strNumber = input.nextInt();
+
+        System.out.println("Indtast postnummer: ");
+        int postCode = input.nextInt();
+
+        System.out.println("Indtast by: ");
+        String city1 = input.nextLine();
+
+
+
+    }
 }
