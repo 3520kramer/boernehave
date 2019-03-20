@@ -6,5 +6,7 @@ public class Main {
 
         handler.addFromFile();
         handler.printTest();
+        handler.addToFile();
     }
+
 }

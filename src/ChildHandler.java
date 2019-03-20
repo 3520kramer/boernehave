@@ -3,7 +3,7 @@ import java.io.*;
 
 public class ChildHandler {
 
-    ArrayList<Child> childList = new ArrayList<Child>();
+    LinkedList<Child> childList = new LinkedList<Child>();
 
     public void addFromFile () throws Exception {
         Scanner scanread = new Scanner(new File("src/memberFile.txt"));
@@ -48,8 +48,11 @@ public class ChildHandler {
     }
 
     public void addToFile() throws FileNotFoundException{
-        PrintStream output = new PrintStream(new File("memberFile.txt"));
-
+        PrintStream output = new PrintStream(new File("memberList.txt"));
+        for (Child ch : childList){
+            output.print(ch.getFirstName()+"-"+ch.getLastName()+"-"+ch.getBirthDate()+"-"+ch.getStreetName() +"-"+ch.getStreetNumber()+"-"
+                    +ch.getPostalCode()+"-"+ch.getCity()+"-"+ch.getContactPerson1()+"-"+ch.getContactPerson2());
+        }
     }
 
     public void printTest() {
