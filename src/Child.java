@@ -5,10 +5,10 @@ public class Child {
     private String BrithDate;
     private String StreetName;
     private String StreetNumber;
-    private int PostalCode = 0000;
+    private int PostalCode = 0;
     private String City;
     private int contactPerson1;
-    private int getContactPerson2;
+    private int ContactPerson2;
 
 
     public void setFirstName(String firstName) {
@@ -44,7 +44,7 @@ public class Child {
     }
 
     public void setGetContactPerson2(int getContactPerson2) {
-        this.getContactPerson2 = getContactPerson2;
+        this.ContactPerson2 = getContactPerson2;
     }
 
     public String getFirstName() {
@@ -79,8 +79,8 @@ public class Child {
         return contactPerson1;
     }
 
-    public int getGetContactPerson2() {
-        return getContactPerson2;
+    public int getContactPerson2() {
+        return ContactPerson2;
     }
 
 }
