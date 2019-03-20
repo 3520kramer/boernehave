@@ -10,16 +10,41 @@ public class ChildHandler {
 
 
         while (scanread.hasNext()){
+
             Child child = new Child();
             count++;
 
-            String firstName = scanread.next();
-            child.setFirstName(firstName);
+            String text = scanread.next();
+            child.setFirstName(text);
 
-            String lastName = scanread.next();
-            child.setLastName(lastName);
+            text = scanread.next();
+            child.setLastName(text);
 
-            int birthDate = scanread.nextInt();
+            text = scanread.next();
+            child.setBirthDate(text);
+
+            text= scanread.next();
+            child.setStreetName(text);
+
+            int num = scanread.nextInt();
+            child.setStreetNumber(num);
+
+            num= scanread.nextInt();
+            child.setPostalCode(num);
+
+            text = scanread.next();
+            child.setCity(text);
+
+            num= scanread.nextInt();
+            child.setContactPerson1(num);
+
+            num = scanread.nextInt();
+            child.setContactPerson2(num);
+
+
+
+
+
 
         }
     }
