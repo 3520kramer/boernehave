@@ -1,8 +1,10 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
         Child child = new Child();
+        ChildHandler handler = new ChildHandler();
 
-        child.getChildList().add(child);
+        handler.addFromFile();
+        handler.printTest();
     }
 }

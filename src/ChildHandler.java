@@ -3,13 +3,12 @@ import java.io.*;
 
 public class ChildHandler {
 
-    Child child = new Child();
+    ArrayList<Child> childList = new ArrayList<Child>();
 
     public void addFromFile () throws Exception {
         Scanner scanread = new Scanner(new File("src/memberFile.txt"));
         scanread.useDelimiter("-");
         int count = 0;
-
 
         while (scanread.hasNext()){
 
@@ -43,7 +42,7 @@ public class ChildHandler {
             num = scanread.nextInt();
             kid.setContactPerson2(num);
 
-            kid.getChildList().add(kid);
+            childList.add(kid);
 
         }
     }
@@ -54,11 +53,11 @@ public class ChildHandler {
     }
 
     public void printTest() {
-        System.out.println("Børn");
+        System.out.println("Børn: ");
 
-        for(Child ch : child.getChildList()) {
-            System.out.println("First name: " + ch.getFirstName());
-            System.out.println("Last name" + ch.getLastName());
+        for(Child ch : childList) {
+            System.out.println("Fornavn: " + ch.getFirstName());
+            System.out.println("Efternavn: " + ch.getLastName());
         }
     }
 
@@ -102,8 +101,5 @@ public class ChildHandler {
         System.out.println("Indtast kontaktperson nr. 2s telefonnummer: ");
         num = input.nextInt();
         child.setContactPerson2(num);
-
     }
-
-
 }

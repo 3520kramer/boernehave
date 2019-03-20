@@ -16,10 +16,6 @@ public class Child {
 
     ArrayList<Child> childList = new ArrayList<Child>();
 
-    public ArrayList<Child> getChildList(){
-        return childList;
-    }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
