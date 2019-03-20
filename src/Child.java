@@ -14,6 +14,11 @@ public class Child {
     private int contactPerson1;
     private int contactPerson2;
 
+    ArrayList childList = new ArrayList();
+
+    public ArrayList getChildList(){
+        return childList;
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;

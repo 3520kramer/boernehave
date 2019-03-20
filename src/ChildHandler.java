@@ -29,6 +29,7 @@ public class ChildHandler {
 
 
 
+
     }
 
     public void registerNewChild() throws FileNotFoundException{
@@ -37,20 +38,20 @@ public class ChildHandler {
         Child child = new Child();
 
         System.out.println("Indtast fornavn: ");
-        String var = input.nextLine();
-        child.setFirstName(var);
+        String text = input.nextLine();
+        child.setFirstName(text);
 
         System.out.println("Indtast efternavn:");
-        var = input.nextLine();
-        child.setLastName(var);
+        text = input.nextLine();
+        child.setLastName(text);
 
         System.out.println("Indtast fødselsdagsdato: ");
-        var = input.nextLine();
-        child.setBirthDate(var);
+        text = input.nextLine();
+        child.setBirthDate(text);
 
         System.out.println("Indtast vejnavn: ");
-        var = input.nextLine();
-        child.setStreetName(var);
+        text = input.nextLine();
+        child.setStreetName(text);
 
         System.out.println("Indtast husnummer: ");
         int num = input.nextInt();
@@ -61,8 +62,8 @@ public class ChildHandler {
         child.setPostalCode(num);
 
         System.out.println("Indtast by: ");
-        var = input.nextLine();
-        child.setCity(var);
+        text = input.nextLine();
+        child.setCity(text);
 
         System.out.println("Indtast kontaktperson nr. 1s telefonnummer: ");
         num = input.nextInt();
