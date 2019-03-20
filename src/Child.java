@@ -23,7 +23,7 @@ public class Child {
         this.lastName = lName;
     }
 
-    public void setBrithDate(String bDate) {
+    public void setBirthDate(String bDate) {
         this.birthDate = bDate;
     }
 
@@ -114,6 +114,21 @@ public class Child {
 
         System.out.println("Indtast by: ");
         String city1 = input.nextLine();
+
+        System.out.println("Indtast kontaktperson nr. 1s telefonnummer: ");
+        int cPerson1 = input.nextInt();
+
+        System.out.println("Indtast kontaktperson nr. 2s telefonnummer: ");
+        int cPerson2 = input.nextInt();
+
+        child.setFirstName(fName);
+        child.setLastName(lname);
+        child.setBirthDate(bdate);
+        child.setStreetName(strName);
+        child.setStreetNumber(strNumber);
+        child.setPostalCode(postCode);
+        child.setCity(city1);
+
 
 
 
