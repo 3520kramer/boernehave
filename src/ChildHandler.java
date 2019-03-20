@@ -61,6 +61,14 @@ public class ChildHandler {
         for(Child ch : childList) {
             System.out.println("Fornavn: " + ch.getFirstName());
             System.out.println("Efternavn: " + ch.getLastName());
+            System.out.println("Fødselsdato: "+ ch.getBirthDate());
+            System.out.println("Adresse\n Gadenavn:"+ch.getStreetName());
+            System.out.println("Nummer: "+ch.getStreetNumber());
+            System.out.println("Postnummer: "+ch.getPostalCode());
+            System.out.println("By: "+ch.getCity());
+            System.out.println("Kontakt Person 1: "+ch.getContactPerson1());
+            System.out.println("Kontakt Person 2: "+ch.getContactPerson2());
+
         }
     }
 
