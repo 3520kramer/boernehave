@@ -15,40 +15,40 @@ public class Child {
     private int contactPerson2;
 
 
-    public void setFirstName(String fName) {
-        this.firstName = fName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setLastName(String lName) {
-        this.lastName = lName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setBirthDate(String bDate) {
-        this.birthDate = bDate;
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public void setStreetName(String strName) {
-        this.streetName = strName;
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
     }
 
-    public void setStreetNumber(int strNumber) {
-        this.streetNumber = strNumber;
+    public void setStreetNumber(int streetNumber) {
+        this.streetNumber = streetNumber;
     }
 
-    public void setPostalCode(int postCode) {
-        this.postalCode = postCode;
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
     }
 
-    public void setCity(String city1) {
-        this.city = city1;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public void setContactPerson1(int cPerson1) {
-        this.contactPerson1 = cPerson1;
+    public void setContactPerson1(int contactPerson1) {
+        this.contactPerson1 = contactPerson1;
     }
 
-    public void setGetContactPerson2(int cPerson2) {
-        this.contactPerson2 = cPerson2;
+    public void setContactPerson2(int contactPerson2) {
+        this.contactPerson2 = contactPerson2;
     }
 
     public String getFirstName() {
@@ -59,7 +59,7 @@ public class Child {
         return lastName;
     }
 
-    public String getBrithDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
@@ -85,52 +85,5 @@ public class Child {
 
     public int getContactPerson2() {
         return contactPerson2;
-    }
-
-    public void registerNewChild() throws FileNotFoundException{
-
-        Scanner input = new Scanner(System.in);
-
-        Child child = new Child();
-        PrintStream writeChildToFile = new PrintStream(new FileOutputStream("Children.txt", true));
-
-        System.out.println("Indtast fornavn: ");
-        String fName = input.nextLine();
-
-        System.out.println("Indtast efternavn:");
-        String lname = input.nextLine();
-
-        System.out.println("Indtast fødselsdagsdato: ");
-        String bdate = input.nextLine();
-
-        System.out.println("Indtast vejnavn: ");
-        String strName = input.nextLine();
-
-        System.out.println("Indtast husnummer: ");
-        int strNumber = input.nextInt();
-
-        System.out.println("Indtast postnummer: ");
-        int postCode = input.nextInt();
-
-        System.out.println("Indtast by: ");
-        String city1 = input.nextLine();
-
-        System.out.println("Indtast kontaktperson nr. 1s telefonnummer: ");
-        int cPerson1 = input.nextInt();
-
-        System.out.println("Indtast kontaktperson nr. 2s telefonnummer: ");
-        int cPerson2 = input.nextInt();
-
-        child.setFirstName(fName);
-        child.setLastName(lname);
-        child.setBirthDate(bdate);
-        child.setStreetName(strName);
-        child.setStreetNumber(strNumber);
-        child.setPostalCode(postCode);
-        child.setCity(city1);
-
-
-
-
     }
 }
