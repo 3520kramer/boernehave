@@ -56,7 +56,7 @@ public class ChildHandler {
             System.out.println("Fornavn: " + ch.getFirstName());
             System.out.println("Efternavn: " + ch.getLastName());
             System.out.println("Fødselsdato: "+ ch.getBirthDate());
-            System.out.println("Adresse\nGadenavn:"+ch.getStreetName());
+            System.out.println("Gadenavn: "+ch.getStreetName());
             System.out.println("Nummer: "+ch.getStreetNumber());
             System.out.println("Postnummer: "+ch.getPostalCode());
             System.out.println("By: "+ch.getCity());
@@ -144,10 +144,9 @@ public class ChildHandler {
             if (input.equalsIgnoreCase(ch.getFirstName()) || input.equalsIgnoreCase(ch.getLastName())
                     || input.equalsIgnoreCase(ch.getBirthDate())) {
                 count++;
-                System.out.println(count + " resultater fundet");
             }
         }
-
+        System.out.println(count + " resultat(er) fundet");
         count = 0;
         for(Child ch : childList){
             if(input.equalsIgnoreCase(ch.getFirstName()) || input.equalsIgnoreCase(ch.getLastName())
@@ -157,12 +156,12 @@ public class ChildHandler {
                 System.out.println("Fornavn: " + ch.getFirstName());
                 System.out.println("Efternavn: " + ch.getLastName());
                 System.out.println("Fødselsdato: "+ ch.getBirthDate());
-                System.out.println("Adresse\nGadenavn: "+ch.getStreetName());
+                System.out.println("Gadenavn: "+ch.getStreetName());
                 System.out.println("Nummer: "+ch.getStreetNumber());
                 System.out.println("Postnummer: "+ch.getPostalCode());
                 System.out.println("By: "+ch.getCity());
                 System.out.println("Kontakt Person 1: "+ch.getContactPerson1());
-                System.out.println("Kontakt Person 2: "+ch.getContactPerson2());
+                System.out.println("Kontakt Person 2: "+ch.getContactPerson2() + "\n\n");
             }
         }
     }
@@ -172,39 +171,42 @@ public class ChildHandler {
 
         Child child = new Child();
 
-        System.out.println("Indtast fornavn: ");
-        String text = input.next();
+        System.out.println("Indtast fornavn:");
+        String text = input.nextLine();
         child.setFirstName(text);
 
         System.out.println("Indtast efternavn:");
-        text = input.next();
+        text = input.nextLine();
         child.setLastName(text);
 
-        System.out.println("Indtast fødselsdagsdato: ");
-        text = input.next();
+        System.out.println("Indtast fødselsdagsdato:");
+        text = input.nextLine();
         child.setBirthDate(text);
 
-        System.out.println("Indtast vejnavn: ");
-        text = input.next();
+        System.out.println("Indtast vejnavn:");
+        text = input.nextLine();
         child.setStreetName(text);
 
-        System.out.println("Indtast husnummer: ");
+        System.out.println("Indtast husnummer:");
         int num = input.nextInt();
         child.setStreetNumber(num);
 
-        System.out.println("Indtast postnummer: ");
+        System.out.println("Indtast postnummer:");
         num = input.nextInt();
         child.setPostalCode(num);
 
-        System.out.println("Indtast by: ");
-        text = input.next();
+        //Da nextInt ikke læser \n bliver vi nødt til at sætte en ind, så den næste linje bliver læst
+        input.nextLine();
+
+        System.out.println("Indtast by:");
+        text = input.nextLine();
         child.setCity(text);
 
-        System.out.println("Indtast kontaktperson nr. 1s telefonnummer: ");
+        System.out.println("Indtast kontaktperson nr. 1s telefonnummer:");
         num = input.nextInt();
         child.setContactPerson1(num);
 
-        System.out.println("Indtast kontaktperson nr. 2s telefonnummer: ");
+        System.out.println("Indtast kontaktperson nr. 2s telefonnummer:");
         num = input.nextInt();
         child.setContactPerson2(num);
 
