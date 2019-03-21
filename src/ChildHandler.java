@@ -7,8 +7,7 @@ public class ChildHandler {
 
     public void addFromFile () throws Exception {
         Scanner scanread = new Scanner(new File("src/memberFile.txt"));
-        Scanner scanner = scanread.useDelimiter("-");
-        int count = 0;
+        scanread.useDelimiter("-");
 
         while (scanread.hasNext()){
 
