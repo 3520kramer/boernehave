@@ -42,7 +42,7 @@ public class ChildHandler {
             childList.add(kid);
         }
     }
-
+    
     public void addToFile() throws FileNotFoundException{
         PrintStream output = new PrintStream(new File("src/memberFile.txt"));
         for (Child ch : childList){
