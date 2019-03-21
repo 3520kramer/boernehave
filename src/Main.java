@@ -9,12 +9,14 @@ public class Main {
 
 
         handler.addFromFile();
+
         while(true) {
             System.out.println("Roskilde frie børnehaves program");
             System.out.println("Tryk 1 for at registrere et nyt barn\nTryk 2 for at se alle børn eller søge\ntryk 3 for at redigere et barn\n" +
                     "Tryk 4 for at registrere personale\nTryk 5 for at se personale\nTryk 6 for at redigere personale\nTryk 7 for at se venteliste\n" +
                     "Tryk 8 for at redigere venteliste\nTryk 9 for at se vagtplan\nTryk 10 for at redigere vagtplan\nTryk 11 for telefonliste\nTryk 12 for exit");
             int input = scan.nextInt();
+
             if (input == 1) {
                 handler.registerNewChild();
                 handler.addToFile();
@@ -22,6 +24,7 @@ public class Main {
             if (input == 2) {
                 System.out.println("Tast 1 for at se alle børn\nTast 2 for at søge");
                 input = scan.nextInt();
+
                 if (input == 1) {
                     handler.displayList();
                 }

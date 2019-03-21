@@ -10,9 +10,7 @@ public class ChildHandler {
         scanread.useDelimiter("-");
 
         while (scanread.hasNext()){
-
             Child kid = new Child();
-            count++;
 
             String text = scanread.next();
             kid.setFirstName(text);
@@ -29,20 +27,19 @@ public class ChildHandler {
             int num = scanread.nextInt();
             kid.setStreetNumber(num);
 
-            num= scanread.nextInt();
+            num = scanread.nextInt();
             kid.setPostalCode(num);
 
             text = scanread.next();
             kid.setCity(text);
 
-            num= scanread.nextInt();
+            num = scanread.nextInt();
             kid.setContactPerson1(num);
 
             num = scanread.nextInt();
             kid.setContactPerson2(num);
 
             childList.add(kid);
-
         }
     }
 
@@ -65,7 +62,6 @@ public class ChildHandler {
             System.out.println("By: "+ch.getCity());
             System.out.println("Kontakt Person 1: "+ch.getContactPerson1());
             System.out.println("Kontakt Person 2: "+ch.getContactPerson2() + "\n\n");
-
         }
     }
 
@@ -88,16 +84,19 @@ public class ChildHandler {
             }
             pos++;
         }
+        
         System.out.println("Tryk 1 for at ændre fornavn:\nTryk 2 for at ændre efternavn\ntryk 3 for at ændre fødselsdato\n" +
                 "Tryk 4 for at ændre adresse\nTryk 5 for at ændre kontaktperson 1\nTryk 6 for at ændre kontaktperson 2\n");
 
         int numInput = scan.nextInt();
         switch (numInput){
             case 1:
+                System.out.println("Fornavn:");
                 input = scan.next();
                 child.setFirstName(input);
                 break;
             case 2:
+                System.out.println();
                 input = scan.next();
                 child.setLastName(input);
                 break;
@@ -106,15 +105,19 @@ public class ChildHandler {
                 child.setBirthDate(input);
                 break;
             case 4:
+                System.out.println("Gadenavn:");
                 input = scan.next();
                 child.setStreetName(input);
 
+                System.out.println("Nummer:");
                 numInput = scan.nextInt();
                 child.setStreetNumber(numInput);
 
+                System.out.println("By:");
                 input = scan.next();
                 child.setCity(input);
 
+                System.out.println("Postnummer:");
                 numInput = scan.nextInt();
                 child.setPostalCode(numInput);
                 break;
