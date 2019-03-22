@@ -7,7 +7,7 @@ public class Child {
     private String birthDate;
     private String streetName;
     private int streetNumber;
-    private int postalCode = 0;
+    private int postalCode;
     private String city;
     private int contactPerson1;
     private int contactPerson2;

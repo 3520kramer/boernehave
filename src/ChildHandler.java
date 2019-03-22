@@ -7,7 +7,7 @@ public class ChildHandler {
 
     public void addFromFile () throws Exception {
         Scanner scanread = new Scanner(new File("src/memberFile.txt"));
-        scanread.useDelimiter("-");
+        scanread.useDelimiter("-|\\n");
 
         while (scanread.hasNext()){
             Child kid = new Child();
@@ -47,7 +47,7 @@ public class ChildHandler {
         PrintStream output = new PrintStream(new File("src/memberFile.txt"));
         for (Child ch : childList){
             output.print(ch.getFirstName() + "-" + ch.getLastName() + "-" + ch.getBirthDate() + "-" + ch.getStreetName() + "-" + ch.getStreetNumber() + "-"
-                    + ch.getPostalCode() + "-" + ch.getCity() + "-" + ch.getContactPerson1() + "-" + ch.getContactPerson2() + "-");
+                    + ch.getPostalCode() + "-" + ch.getCity() + "-" + ch.getContactPerson1() + "-" + ch.getContactPerson2() + "\n");
         }
     }
 
@@ -65,72 +65,87 @@ public class ChildHandler {
         }
     }
 
-    public void searchToEdit() {
+    public void searchToEdit() throws Exception{
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Hvem vil du søge efter?");
         String input = scan.next();
 
-        Child child = new Child();
+        //opretter et midlertidigt objekt til at holde vores Child-objekt som vi kan ændre på
+        Child tempChild = new Child();
         int count = 0;
         int pos = 0;
 
+        //loop som tjekker om input fra bruger matcher fornavn, efternavn eller fødselsdag
         for (Child ch : childList) {
             if (input.equalsIgnoreCase(ch.getFirstName()) || input.equalsIgnoreCase(ch.getLastName())
                     || input.equalsIgnoreCase(ch.getBirthDate())) {
-                child = ch;
-                count++;
-                childList.remove(pos);
+                tempChild = ch;
+
+                //fjerner objektet fra arraylisten
+                pos = count;
             }
-            pos++;
+            count++;
         }
-        
-        System.out.println("Tryk 1 for at ændre fornavn:\nTryk 2 for at ændre efternavn\ntryk 3 for at ændre fødselsdato\n" +
+        //fjerner objektet fra arraylisten
+        childList.remove(pos);
+
+        System.out.println("\nDu har valgt " + tempChild.getFirstName() + " " + tempChild.getLastName() + "\n");
+
+        System.out.println("Tryk 1 for at ændre fornavn\nTryk 2 for at ændre efternavn\ntryk 3 for at ændre fødselsdato\n" +
                 "Tryk 4 for at ændre adresse\nTryk 5 for at ændre kontaktperson 1\nTryk 6 for at ændre kontaktperson 2\n");
 
         int numInput = scan.nextInt();
+        String oldInfo = tempChild.getFirstName();
+
         switch (numInput){
             case 1:
-                System.out.println("Fornavn:");
+                System.out.println("indtast fornavn:");
                 input = scan.next();
-                child.setFirstName(input);
+                tempChild.setFirstName(input);
+                System.out.println("\n" + oldInfo + "'s fornavn er ændret til " + tempChild.getFirstName() + "\n\n");
                 break;
             case 2:
-                System.out.println();
+                System.out.println("Indtast efternavn:");
                 input = scan.next();
-                child.setLastName(input);
+                tempChild.setLastName(input);
+                System.out.println("\n" + oldInfo + "'s efternavn er ændret til " + tempChild.getLastName() + "\n\n");
                 break;
             case 3:
+                System.out.println("Indtast fødselsdato (DD/MM/ÅÅÅÅ)");
                 input = scan.next();
-                child.setBirthDate(input);
+                tempChild.setBirthDate(input);
+                System.out.println("\n" + oldInfo + "'s fødselsdato er ændret til " + tempChild.getBirthDate() + "\n\n");
                 break;
             case 4:
-                System.out.println("Gadenavn:");
+                System.out.println("Indtast gadenavn:");
                 input = scan.next();
-                child.setStreetName(input);
+                tempChild.setStreetName(input);
 
-                System.out.println("Nummer:");
+                System.out.println("Indtast nummer:");
                 numInput = scan.nextInt();
-                child.setStreetNumber(numInput);
+                tempChild.setStreetNumber(numInput);
 
-                System.out.println("By:");
+                System.out.println("Indtast by:");
                 input = scan.next();
-                child.setCity(input);
+                tempChild.setCity(input);
 
-                System.out.println("Postnummer:");
+                System.out.println("Indtast postnummer:");
                 numInput = scan.nextInt();
-                child.setPostalCode(numInput);
+                tempChild.setPostalCode(numInput);
+                System.out.println("\n" + oldInfo + "'s adresse er ændret til: " + tempChild.getStreetName() + " " + tempChild.getStreetNumber() + "," + tempChild.getCity() + " " + tempChild.getPostalCode() + "\n\n");
                 break;
             case 5:
                 numInput = scan.nextInt();
-                child.setContactPerson1(numInput);
+                tempChild.setContactPerson1(numInput);
                 break;
             case 6:
                 numInput = scan.nextInt();
-                child.setContactPerson2(numInput);
+                tempChild.setContactPerson2(numInput);
                 break;
         }
-        childList.add(child);
+        //gemmer det nye redigerede barn i arraylisten
+        childList.add(tempChild);
     }
 
     public void search(){
@@ -140,14 +155,18 @@ public class ChildHandler {
         String input = scan.next();
 
         int count = 0;
+        //loop som tjekker hvor mange af det givne navn som findes
         for(Child ch : childList) {
             if (input.equalsIgnoreCase(ch.getFirstName()) || input.equalsIgnoreCase(ch.getLastName())
                     || input.equalsIgnoreCase(ch.getBirthDate())) {
                 count++;
             }
         }
-        System.out.println(count + " resultat(er) fundet");
+        System.out.println(count + " resultat(er) fundet\n");
         count = 0;
+
+        
+        //loop som printer de fundne navne
         for(Child ch : childList){
             if(input.equalsIgnoreCase(ch.getFirstName()) || input.equalsIgnoreCase(ch.getLastName())
                     || input.equalsIgnoreCase(ch.getBirthDate())){
@@ -195,7 +214,7 @@ public class ChildHandler {
         num = input.nextInt();
         child.setPostalCode(num);
 
-        //Da nextInt ikke læser \n bliver vi nødt til at sætte en ind, så den næste linje bliver læst
+        //Da nextInt ikke læser \n bliver vi nødt til at sætte en ind, så den næste linje vil blive læst efter næste spørgsmål
         input.nextLine();
 
         System.out.println("Indtast by:");
